@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tanveer Ahmed | Supply Chain & Merchandising Professional</title>
+  <meta name="description" content="Professional portfolio of Tanveer Ahmed. Masters in Apparel Merchandising (CBIFT, CGPA 4.00), BBA in Supply Chain (IIUC), Oracle ERP & Procurement experienced at Pacific Jeans.">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Core Styles -->
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+
+  <!-- Reading Scroll Progress Bar -->
+  <div id="scroll-progress"></div>
+
+  <!-- Owner Admin Bar (Reveals when logged in) -->
+  <div id="owner-admin-banner" class="owner-admin-banner">
+    <div>
+      <i class="fas fa-user-shield" style="color: #60a5fa; margin-right: 6px;"></i>
+      <span>Logged in as <strong>Tanveer Ahmed</strong> (Owner Edit Mode)</span>
+    </div>
+    <div class="banner-actions">
+      <a href="admin.html"><i class="fas fa-sliders-h"></i> Open CMS Editor</a>
+      <button id="admin-logout-btn"><i class="fas fa-sign-out-alt"></i> Exit Edit Mode</button>
+    </div>
+  </div>
+
+  <!-- Primary Navigation -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="#" class="nav-brand">
+        <div class="brand-monogram">TA</div>
+        <div class="brand-info">
+          <span class="brand-name dyn-name">Tanveer Ahmed</span>
+          <span class="brand-badge">Supply Chain & Merchandising</span>
+        </div>
+      </a>
+
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#experience" class="nav-link">Experience</a></li>
+          <li><a href="#education" class="nav-link">Education</a></li>
+          <li><a href="#training" class="nav-link">Training</a></li>
+          <li><a href="#skills" class="nav-link">Skills</a></li>
+          <li><a href="#showcase" class="nav-link">Milestones</a></li>
+          <li><a href="#references" class="nav-link">References</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="btn-subtle-admin btn-open-admin-modal" title="Owner Login (Ctrl+Shift+A)">
+          <i class="fas fa-lock"></i>
+        </button>
+        <button class="mobile-menu-toggle" id="mobile-toggle" aria-label="Toggle Navigation">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" id="overview">
+    <div class="container hero-grid">
+      <!-- Left Content -->
+      <div class="hero-content reveal-item">
+        <div class="hero-status-pill">
+          <span class="status-indicator"></span>
+          <span>Open for Executive Opportunities & Placement</span>
+        </div>
+
+        <div>
+          <h1 class="hero-name">
+            <span class="dyn-name">Tanveer Ahmed</span>
+          </h1>
+          <div class="hero-designation">
+            <i class="fas fa-chart-line"></i>
+            <span class="dyn-title">Supply Chain & Merchandising Professional</span>
+          </div>
+        </div>
+
+        <p class="hero-bio" id="dyn-sub-title">
+          Master's in Apparel Merchandising at CBIFT (CGPA 4.00) & BBA in Supply Chain Management at IIUC. Hands-on industrial exposure in procurement, Oracle ERP, and sourcing at Pacific Jeans NHT Fashion.
+        </p>
+
+        <!-- Quick Meta Contacts -->
+        <div class="hero-meta-items">
+          <span class="hero-meta-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <span id="dyn-location">Patenga, Chattogram</span>
+          </span>
+          <a href="mailto:mdtanveerahmed.@gmail.com" class="hero-meta-item dyn-email">
+            <i class="fas fa-envelope"></i>
+            <span>mdtanveerahmed.@gmail.com</span>
+          </a>
+          <a href="tel:01726105293" class="hero-meta-item dyn-phone">
+            <i class="fas fa-phone-alt"></i>
+            <span>01726105293</span>
+          </a>
+        </div>
+
+        <!-- Action CTAs -->
+        <div class="hero-cta-group">
+          <a href="#experience" class="btn btn-primary">
+            <i class="fas fa-briefcase"></i> View Work Experience
+          </a>
+          <a href="#" class="btn btn-secondary dyn-whatsapp-btn" target="_blank" rel="noopener">
+            <i class="fab fa-whatsapp" style="color: #25d366;"></i> WhatsApp Direct
+          </a>
+          <button onclick="window.print()" class="btn-download-icon" title="Download Official CV (PDF)" aria-label="Download CV">
+            <i class="fas fa-download"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Right Visual Card (Interactive 3D Executive Profile Card) -->
+      <div class="hero-visual reveal-item delay-200">
+        <div class="profile-card-frame" id="hero-profile-card">
+          <div class="profile-img-wrapper">
+            <img src="assets/images/tanveer_executive_zoomed.jpg" alt="Tanveer Ahmed" class="profile-img" id="dyn-profile-img" onerror="this.src='assets/images/profile.jpg'">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Key Metrics Strip -->
+  <section class="stats-strip">
+    <div class="container stats-grid" id="metrics-container">
+      <div class="stat-item reveal-item delay-100">
+        <div class="stat-number-wrap">
+          <span class="stat-number" data-target="4.00">4.00</span>
+          <span class="stat-suffix">/ 4.00</span>
+        </div>
+        <div class="stat-label">Masters CGPA</div>
+        <div class="stat-badge">CBIFT Ongoing</div>
+      </div>
+
+      <div class="stat-item reveal-item delay-200">
+        <div class="stat-number-wrap">
+          <span class="stat-number" data-target="3.47">3.47</span>
+          <span class="stat-suffix">/ 4.00</span>
+        </div>
+        <div class="stat-label">BBA CGPA</div>
+        <div class="stat-badge">Major: Supply Chain</div>
+      </div>
+
+      <div class="stat-item reveal-item delay-300">
+        <div class="stat-number-wrap">
+          <span class="stat-number" data-target="9">9+</span>
+          <span class="stat-suffix">/ Months</span>
+        </div>
+        <div class="stat-label">Industry Training</div>
+        <div class="stat-badge">NYTA & Merchandising</div>
+      </div>
+
+      <div class="stat-item reveal-item delay-400">
+        <div class="stat-number-wrap">
+          <span class="stat-number" style="font-size: 1.6rem; line-height: 1.4;">Pacific Jeans</span>
+        </div>
+        <div class="stat-label">Corporate Exposure</div>
+        <div class="stat-badge">NHT Fashion Intern</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About / Executive Summary -->
+  <section class="section section-alt" id="about">
+    <div class="container">
+      <div class="section-header reveal-item">
+        <span class="section-tag">Professional Overview</span>
+        <h2 class="section-title">Executive Summary & Profile</h2>
+        <p class="section-description">Dedicated, highly motivated, and analytically grounded professional ready to contribute to organizational growth.</p>
+      </div>
+
+      <div class="summary-card reveal-item">
+        <div class="summary-column">
+          <h3 class="summary-heading">
+            <i class="fas fa-user-tie"></i> Profile Narrative
+          </h3>
+          <p class="summary-text" id="dyn-bio">
+            I am 25 years old, currently pursuing my Master's degree and seeking an entry-level position where I can begin my professional career. Although I am a fresher with no formal job experience, I am highly motivated, quick to learn, and confident in my abilities. I have strong leadership and organizational skills, which enable me to effectively organize and manage any task or activity with responsibility and dedication. I am eager to contribute my energy and potential to your esteemed organization.
+          </p>
+        </div>
+
+        <div class="summary-column">
+          <h3 class="summary-heading">
+            <i class="fas fa-bullseye"></i> Career Objective
+          </h3>
+          <p class="summary-text" id="dyn-objective">
+            Seeking an entry-level Supply Chain & Merchandising position in a leading RMG/Textile/Corporate conglomerate where I can apply my academic knowledge in Apparel Merchandising and hands-on procurement training to drive efficiency and value.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Work Experience -->
+  <section class="section" id="experience">
+    <div class="container">
+      <div class="section-header reveal-item">
+        <span class="section-tag">Practical Exposure</span>
+        <h2 class="section-title">Work Experience & Internship</h2>
+        <p class="section-description">Hands-on procurement, Oracle ERP implementation, and supply chain operations in top apparel manufacturing.</p>
+      </div>
+
+      <div class="experience-timeline" id="experience-container">
+        <div class="experience-card reveal-item delay-100">
+          <div class="exp-header">
+            <div>
+              <h3 class="exp-role">Procurement & Supply Chain Intern</h3>
+              <div class="exp-company">
+                <i class="fas fa-building"></i> Pacific Jeans NHT Fashion
+                <span style="color: var(--slate-400); font-size: 0.85rem;">• Chattogram, Bangladesh</span>
+              </div>
+            </div>
+            <div class="exp-badge-group">
+              <span class="badge-type"><i class="fas fa-briefcase"></i> Corporate Internship</span>
+              <span class="badge-period"><i class="far fa-calendar-alt"></i> January 2025 – March 2025</span>
+            </div>
+          </div>
+          <p class="exp-summary">Completed rigorous hands-on corporate internship within one of Bangladesh's leading denim and apparel manufacturing exporters, gaining deep practical exposure in factory procurement operations.</p>
+          <ul class="exp-points-list">
+            <li class="exp-point">
+              <i class="fas fa-check-circle"></i>
+              <span>Procurement & Supplier Evaluation: Selecting, evaluating, and shortlisting raw materials, trims, and accessory suppliers to ensure factory compliance and on-time delivery.</span>
+            </li>
+            <li class="exp-point">
+              <i class="fas fa-check-circle"></i>
+              <span>Purchasing Operations: Executing commercial purchases of industrial products and services adhering to budget limits and production schedules.</span>
+            </li>
+            <li class="exp-point">
+              <i class="fas fa-check-circle"></i>
+              <span>Transport & Inbound Logistics: Arranging, tracking, and coordinating the collection and timely dispatch of materials from external vendors to production floors.</span>
+            </li>
+            <li class="exp-point">
+              <i class="fas fa-check-circle"></i>
+              <span>Enterprise Resource Planning (ERP): Operating Oracle ERP for material requisition, purchase orders (PO), vendor databases, and inventory tracking.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Educational Qualifications -->
+  <section class="section section-alt" id="education">
+    <div class="container">
+      <div class="section-header reveal-item">
+        <span class="section-tag">Academic Background</span>
+        <h2 class="section-title">Educational Qualifications</h2>
+        <p class="section-description">Academic excellence spanning postgraduate merchandising, business administration, and foundational studies.</p>
+      </div>
+
+      <div class="education-grid" id="education-container">
+        <!-- Degree 1 -->
+        <div class="education-card featured reveal-item delay-100">
+          <div>
+            <div class="edu-top">
+              <div>
+                <h3 class="edu-degree">Masters In Apparel Merchandising</h3>
+                <div class="edu-institution">Chattogram BGMEA University of Fashion & Technology (CBIFT)</div>
+              </div>
+              <span class="edu-period">2025 – Ongoing</span>
+            </div>
+            <div class="edu-grade-box">
+              <span class="edu-grade-label">Apparel Merchandising</span>
+              <span class="edu-grade-value highlight">Current Result: 4.00 Out of 4.00</span>
+            </div>
+            <p class="edu-details">Comprehensive postgraduate curriculum focused on global apparel supply chain, merchandising strategies, fabric science, production flow, international buyer negotiations, and export-import compliance.</p>
+          </div>
+        </div>
+
+        <!-- Degree 2 -->
+        <div class="education-card reveal-item delay-200">
+          <div>
+            <div class="edu-top">
+              <div>
+                <h3 class="edu-degree">Bachelor of Business Administration (BBA)</h3>
+                <div class="edu-institution">International Islamic University Chittagong (IIUC)</div>
+              </div>
+              <span class="edu-period">Passing Year: 2025</span>
+            </div>
+            <div class="edu-grade-box">
+              <span class="edu-grade-label">Major: Supply Chain Management</span>
+              <span class="edu-grade-value">CGPA: 3.47 Out of 4.00</span>
+            </div>
+            <p class="edu-details">Four-year specialized business degree in Supply Chain Management covering logistics optimization, inventory control models, procurement strategies, statistical analysis, and operations management.</p>
+          </div>
+        </div>
+
+        <!-- Degree 3 -->
+        <div class="education-card reveal-item delay-100">
+          <div>
+            <div class="edu-top">
+              <div>
+                <h3 class="edu-degree">Higher Secondary Certificate (HSC)</h3>
+                <div class="edu-institution">BAF Shaheen College, Chattogram</div>
+              </div>
+              <span class="edu-period">Passing Year: 2020</span>
+            </div>
+            <div class="edu-grade-box">
+              <span class="edu-grade-label">Business Studies</span>
+              <span class="edu-grade-value">GPA: 4.17 Out of 5.00</span>
+            </div>
+            <p class="edu-details">Disciplined academic foundation in business fundamentals, accounting principles, management, and commercial mathematics.</p>
+          </div>
+        </div>
+
+        <!-- Degree 4 -->
+        <div class="education-card reveal-item delay-200">
+          <div>
+            <div class="edu-top">
+              <div>
+                <h3 class="edu-degree">Secondary School Certificate (SSC)</h3>
+                <div class="edu-institution">Eastern Refinery Model High School</div>
+              </div>
+              <span class="edu-period">Passing Year: 2018</span>
+            </div>
+            <div class="edu-grade-box">
+              <span class="edu-grade-label">Business Studies</span>
+              <span class="edu-grade-value">GPA: 4.06 Out of 5.00</span>
+            </div>
+            <p class="edu-details">Secondary education with high distinction in business and analytical disciplines.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Specialized Training & Certifications -->
+  <section class="section" id="training">
+    <div class="container">
+      <div class="section-header reveal-item">
+        <span class="section-tag">Technical Competence</span>
+        <h2 class="section-title">Specialized Training Programs</h2>
+        <p class="section-description">Industry-standard certifications in RMG Merchandising and National Youth Training Academy IT Management.</p>
+      </div>
+
+      <div class="training-grid" id="training-container">
+        <!-- Training 1 -->
+        <div class="training-card reveal-item delay-100">
+          <div class="training-card-header">
+            <div class="training-icon-box">
+              <i class="fas fa-industry"></i>
+            </div>
+            <div>
+              <h3 class="training-title">Merchandising & Procurement Specialization</h3>
+              <div class="training-meta">Professional Apparel & Merchandising Institute</div>
+              <span class="training-badge">6 Months Intensive</span>
+            </div>
+          </div>
+          <div class="training-modules-grid">
+            <div class="training-module-item"><i class="fas fa-angle-right"></i><span>Buyer Communication & Professional Correspondence</span></div>
+            <div class="training-module-item"><i class="fas fa-angle-right"></i><span>Order Processing & Critical Path Management</span></div>
+            <div class="training-module-item"><i class="fas fa-angle-right"></i><span>Trims, Accessories & Fabric Sourcing</span></div>
+            <div class="training-module-item"><i class="fas fa-angle-right"></i><span>Garment Costing & Consumption Calculation</span></div>
+            <div class="training-module-item"><i class="fas fa-angle-right"></i><span>Sample Development & Client Approval Lifecycle</span></div>
+            <div class="training-module-item"><i class="fas fa-angle-right"></i><span>Production Planning & Capacity Allocation</span></div>
+            <div class="training-module-item"><i class="fas fa-angle-right"></i><span>Vendor Management & Price Negotiation</span></div>
+            <div class="training-module-item"><i class="fas fa-angle-right"></i><span>Quality Control & AQL Compliance Standards</span></div>
+            <div class="training-module-item"><i class="fas fa-angle-right"></i><span>Inventory Management & Store Operations</span></div>
+            <div class="training-module-item"><i class="fas fa-angle-right"></i><span>Shipment Coordination & Export Logistics</span></div>
+            <div class="training-module-item"><i class="fas fa-angle-right"></i><span>Purchase Order (PO) Management & Tracking</span></div>
+          </div>
+        </div>
+
+        <!-- Training 2 -->
+        <div class="training-card reveal-item delay-200">
+          <div class="training-card-header">
+            <div class="training-icon-box">
+              <i class="fas fa-laptop-code"></i>
+            </div>
+            <div>
+              <h3 class="training-title">Microsoft Office Management</h3>
+              <div class="training-meta">National Youth Training Academy (NYTA)</div>
+              <span class="training-badge">3 Months Certified</span>
+            </div>
+          </div>
+          <div class="training-modules-grid">
+            <div class="training-module-item"><i class="fas fa-angle-right"></i><span>Advanced Microsoft Word (Corporate Reports, Formal Memos, Documentation)</span></div>
+            <div class="training-module-item"><i class="fas fa-angle-right"></i><span>Advanced Microsoft Excel (Formulas, Pivot Tables, Merchandising Cost Sheets, Data Analysis)</span></div>
+            <div class="training-module-item"><i class="fas fa-angle-right"></i><span>Microsoft Access (Relational Database Management & Inventory Cataloging)</span></div>
+            <div class="training-module-item"><i class="fas fa-angle-right"></i><span>Microsoft PowerPoint (Executive Business Presentations & Visual Decks)</span></div>
+            <div class="training-module-item"><i class="fas fa-angle-right"></i><span>Corporate Mailing, Internet Protocol & Cloud Collaboration</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Core Competencies & Skills -->
+  <section class="section section-alt" id="skills">
+    <div class="container">
+      <div class="section-header reveal-item">
+        <span class="section-tag">Functional Skills</span>
+        <h2 class="section-title">Core Competencies & Tools</h2>
+        <p class="section-description">Proficiency matrix across ERP software, supply chain logistics, and merchandising operations.</p>
+      </div>
+
+      <!-- Category Filter Pills -->
+      <div class="skills-filter-nav reveal-item">
+        <button class="filter-btn active" data-category="all">All Competencies</button>
+        <button class="filter-btn" data-category="supply_chain">Supply Chain & ERP</button>
+        <button class="filter-btn" data-category="merchandising">Apparel & Merchandising</button>
+        <button class="filter-btn" data-category="tech">IT & Tools</button>
+        <button class="filter-btn" data-category="soft">Leadership</button>
+      </div>
+
+      <div class="skills-cards-grid" id="skills-container">
+        <!-- Rendered by JS / Fallback -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Milestone & Credential Showcase Reel (JS scroll-snap carousel) -->
+  <section class="section" id="showcase">
+    <div class="container">
+      <div class="section-header reveal-item">
+        <span class="section-tag">Career Highlights</span>
+        <h2 class="section-title">Milestones & Core Pillars</h2>
+        <p class="section-description">A quick visual glance at key achievements, academic honors, and corporate capabilities.</p>
+      </div>
+
+      <div class="showcase-wrapper">
+        <div class="showcase-track" id="showcase-track">
+          <!-- Populated via data.js -->
+        </div>
+
+        <div class="showcase-controls">
+          <button class="carousel-btn" id="carousel-prev" aria-label="Previous Slide">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          <button class="carousel-btn" id="carousel-next" aria-label="Next Slide">
+            <i class="fas fa-chevron-right"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Professional References -->
+  <section class="section section-alt" id="references">
+    <div class="container">
+      <div class="section-header reveal-item">
+        <span class="section-tag">Endorsements</span>
+        <h2 class="section-title">Professional References</h2>
+        <p class="section-description">Distinguished industry leaders and corporate managers available for direct verification.</p>
+      </div>
+
+      <div class="references-grid" id="references-container">
+        <!-- Populated via data.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact & Hiring Inquiry -->
+  <section class="section" id="contact">
+    <div class="container">
+      <div class="section-header reveal-item">
+        <h2 class="section-title">Contact & Hiring Inquiries</h2>
+        <p class="section-description">Reach out directly for interviews, placement opportunities, or corporate networking.</p>
+      </div>
+
+      <div class="contact-grid reveal-item">
+        <!-- Left Side: Channels -->
+        <div class="contact-sidebar">
+          <div>
+            <h3 class="contact-intro-title">Let's Discuss How I Can Add Value</h3>
+            <p class="contact-intro-desc">Feel free to contact me via email, direct phone call, or WhatsApp. I am immediately available for entry-level positions in Chittagong, Dhaka, or regional hubs.</p>
+          </div>
+
+          <div class="contact-channels">
+            <a href="mailto:mdtanveerahmed.@gmail.com" class="channel-box dyn-email">
+              <div class="channel-icon">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <div class="channel-info">
+                <span class="channel-label">Official Email</span>
+                <span class="channel-val">mdtanveerahmed.@gmail.com</span>
+              </div>
+            </a>
+
+            <a href="tel:01726105293" class="channel-box dyn-phone">
+              <div class="channel-icon">
+                <i class="fas fa-phone-alt"></i>
+              </div>
+              <div class="channel-info">
+                <span class="channel-label">Mobile Direct</span>
+                <span class="channel-val">01726105293</span>
+              </div>
+            </a>
+
+            <a href="#" class="channel-box dyn-whatsapp-btn" target="_blank" rel="noopener">
+              <div class="channel-icon" style="color: #25d366;">
+                <i class="fab fa-whatsapp"></i>
+              </div>
+              <div class="channel-info">
+                <span class="channel-label">WhatsApp Chat</span>
+                <span class="channel-val">+880 1726105293</span>
+              </div>
+            </a>
+
+            <div class="channel-box">
+              <div class="channel-icon">
+                <i class="fas fa-map-marker-alt"></i>
+              </div>
+              <div class="channel-info">
+                <span class="channel-label">Current Address</span>
+                <span class="channel-val">Dhum Para, Patenga, Chattogram</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Side: Message Form -->
+        <div class="contact-form-wrap">
+          <form id="contact-inquiry-form" onsubmit="event.preventDefault(); alert('Thank you for reaching out! Your message draft has been prepared.'); window.location.href='mailto:mdtanveerahmed.@gmail.com?subject=' + encodeURIComponent(document.getElementById('form-subject').value) + '&body=' + encodeURIComponent('From: ' + document.getElementById('form-name').value + ' (' + document.getElementById('form-email').value + ')\n\n' + document.getElementById('form-msg').value);">
+            <div class="form-group" style="margin-bottom: 1rem;">
+              <label class="form-label" for="form-name">Full Name / Organization</label>
+              <input type="text" id="form-name" class="form-control" placeholder="e.g. HR Manager / Buying House" required>
+            </div>
+
+            <div class="form-group" style="margin-bottom: 1rem;">
+              <label class="form-label" for="form-email">Your Work Email</label>
+              <input type="email" id="form-email" class="form-control" placeholder="name@company.com" required>
+            </div>
+
+            <div class="form-group" style="margin-bottom: 1rem;">
+              <label class="form-label" for="form-subject">Subject</label>
+              <input type="text" id="form-subject" class="form-control" value="Job Opportunity / Interview Inquiry - Tanveer Ahmed" required>
+            </div>
+
+            <div class="form-group" style="margin-bottom: 1.5rem;">
+              <label class="form-label" for="form-msg">Message</label>
+              <textarea id="form-msg" class="form-control" rows="4" placeholder="Briefly describe the role or query..." required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="width: 100%;">
+              <i class="fas fa-paper-plane"></i> Send Inquiries Directly
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="footer-monogram">TA</div>
+          <div>
+            <div class="footer-name dyn-name">Tanveer Ahmed</div>
+            <div class="footer-role dyn-title">Supply Chain & Merchandising Professional</div>
+          </div>
+        </div>
+
+        <ul class="footer-nav">
+          <li><a href="#about">About</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#references">References</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Professional Social Media Ribbon -->
+      <div class="footer-social-ribbon reveal-item">
+        <div class="footer-social-label">
+          <i class="fas fa-network-wired" style="color: var(--blue-400);"></i> Connect on Professional & Social Networks
+        </div>
+        <div class="footer-social-grid">
+          <a href="https://www.linkedin.com/in/tanveer-ahmed-27a476207?utm_source=share_via&utm_content=profile&utm_medium=member_android" class="social-pill-btn linkedin" target="_blank" rel="noopener">
+            <i class="fab fa-linkedin"></i> <span>LinkedIn Profile</span>
+          </a>
+
+          <a href="https://www.facebook.com/share/18gxHHB9ip/" class="social-pill-btn facebook" target="_blank" rel="noopener">
+            <i class="fab fa-facebook"></i> <span>Facebook</span>
+          </a>
+
+          <a href="https://www.instagram.com/me.tonight_?srtk=MWtmcmI1cjZlbTJ4NA==" class="social-pill-btn instagram" target="_blank" rel="noopener">
+            <i class="fab fa-instagram"></i> <span>Instagram</span>
+          </a>
+
+          <button type="button" class="social-pill-btn wechat" onclick="document.getElementById('wechat-modal').classList.add('active')">
+            <i class="fab fa-weixin"></i> <span>WeChat QR Code</span>
+          </button>
+
+          <a href="https://wa.me/8801726105293" class="social-pill-btn whatsapp" target="_blank" rel="noopener">
+            <i class="fab fa-whatsapp"></i> <span>WhatsApp Direct</span>
+          </a>
+
+          <a href="mailto:mdtanveerahmed.@gmail.com" class="social-pill-btn" style="background: rgba(37, 99, 235, 0.2); border-color: rgba(37, 99, 235, 0.4);">
+            <i class="fas fa-envelope"></i> <span>Official Email</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          &copy; 2026 Tanveer Ahmed. All rights reserved.
+        </div>
+        <div style="display: flex; gap: 15px; align-items: center;">
+          <a href="#" class="btn-open-admin-modal" style="color: var(--slate-400); text-decoration: none;">
+            <i class="fas fa-lock"></i> Owner Portal
+          </a>
+          <span style="color: var(--slate-600);">|</span>
+          <a href="admin.html" style="color: var(--slate-400); text-decoration: none;">
+            <i class="fas fa-cog"></i> CMS Settings
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WeChat QR Code Modal -->
+  <div class="modal-overlay" id="wechat-modal">
+    <div class="modal-box" style="max-width: 420px; text-align: center;">
+      <div class="modal-header">
+        <div style="display: flex; align-items: center; gap: 0.6rem;">
+          <i class="fab fa-weixin" style="color: #07c160; font-size: 1.4rem;"></i>
+          <h3 class="modal-title">WeChat Contact</h3>
+        </div>
+        <button class="modal-close-btn" onclick="document.getElementById('wechat-modal').classList.remove('active')">&times;</button>
+      </div>
+      <div class="modal-body" style="padding: 1.5rem;">
+        <div style="background: #fff; padding: 0.5rem; border-radius: 12px; border: 1px solid #e2e8f0; display: inline-block; margin-bottom: 1rem; box-shadow: var(--shadow-md);">
+          <img src="assets/images/wechat_qr.png" alt="Tanveer Ahmed WeChat QR" style="width: 100%; max-width: 280px; height: auto; border-radius: 8px;">
+        </div>
+        <p style="font-size: 0.95rem; font-weight: 700; color: var(--navy-950); margin-bottom: 0.25rem;">
+          Tanveer Ahmed 坦维尔 艾哈迈德
+        </p>
+        <p style="font-size: 0.82rem; color: var(--slate-500);">
+          Scan the QR code using your WeChat App to connect directly for international fabric, trims & apparel supply communication.
+        </p>
+      </div>
+      <div class="modal-footer" style="justify-content: center;">
+        <button type="button" class="btn btn-secondary" onclick="document.getElementById('wechat-modal').classList.remove('active')">Close</button>
+        <a href="assets/images/wechat_qr.png" download="Tanveer_Ahmed_WeChat_QR.png" class="btn btn-primary">
+          <i class="fas fa-download"></i> Save QR Image
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Floating Action Dock (Social Media Links Only - No Numbers, No Clutter) -->
+  <div class="floating-actions-hub" id="floating-hub">
+    <!-- WhatsApp -->
+    <a href="#" class="fab-btn fab-whatsapp dyn-whatsapp-btn" target="_blank" rel="noopener" data-tooltip="WhatsApp Direct">
+      <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- LinkedIn -->
+    <a href="https://www.linkedin.com/in/tanveer-ahmed-27a476207?utm_source=share_via&utm_content=profile&utm_medium=member_android" class="fab-btn fab-linkedin" target="_blank" rel="noopener" data-tooltip="LinkedIn Profile">
+      <i class="fab fa-linkedin-in"></i>
+    </a>
+
+    <!-- Facebook -->
+    <a href="https://www.facebook.com/share/18gxHHB9ip/" class="fab-btn fab-facebook" target="_blank" rel="noopener" data-tooltip="Facebook Profile">
+      <i class="fab fa-facebook-f"></i>
+    </a>
+
+    <!-- Instagram -->
+    <a href="https://www.instagram.com/me.tonight_?srtk=MWtmcmI1cjZlbTJ4NA==" class="fab-btn fab-instagram" target="_blank" rel="noopener" data-tooltip="Instagram">
+      <i class="fab fa-instagram"></i>
+    </a>
+
+    <!-- Back to Top -->
+    <button class="fab-btn fab-top" id="back-to-top-btn" data-tooltip="Back to Top">
+      <i class="fas fa-arrow-up"></i>
+    </button>
+  </div>
+
+  <!-- Admin Login Modal Dialog -->
+  <div class="modal-overlay" id="admin-login-modal">
+    <div class="modal-box">
+      <div class="modal-header">
+        <div style="display: flex; align-items: center; gap: 0.6rem;">
+          <i class="fas fa-user-lock" style="color: var(--blue-600); font-size: 1.25rem;"></i>
+          <h3 class="modal-title">Tanveer's Owner Admin Login</h3>
+        </div>
+        <button class="modal-close-btn" id="admin-modal-close">&times;</button>
+      </div>
+
+      <form id="admin-login-form">
+        <div class="modal-body">
+          <p style="font-size: 0.88rem; color: var(--slate-600); margin-bottom: 1.25rem;">
+            Only the portfolio owner (Tanveer Ahmed) can log in to edit profile data, update degrees, change photo, and modify experiences without touching any code.
+          </p>
+
+          <div class="form-group" style="margin-bottom: 1rem;">
+            <label class="form-label" for="admin-email-input">Owner Email</label>
+            <input type="email" id="admin-email-input" class="form-control" value="mdtanveerahmed.@gmail.com" required>
+          </div>
+
+          <div class="form-group" style="margin-bottom: 0.75rem;">
+            <label class="form-label" for="admin-pass-input">Password</label>
+            <input type="password" id="admin-pass-input" class="form-control" placeholder="Enter your secret password" required>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" onclick="document.getElementById('admin-login-modal').classList.remove('active')">Cancel</button>
+          <button type="submit" class="btn btn-primary">
+            <i class="fas fa-unlock-alt"></i> Access Admin CMS
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>

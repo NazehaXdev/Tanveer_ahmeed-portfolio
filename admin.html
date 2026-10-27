@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CMS Dashboard | Tanveer Ahmed Portfolio</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="assets/css/admin.css">
+</head>
+<body class="admin-body">
+
+  <!-- Login Wall Overlay (Requires Auth to Access) -->
+  <div class="login-wall-overlay" id="admin-login-wall">
+    <div class="login-card">
+      <div class="login-icon">
+        <i class="fas fa-shield-alt"></i>
+      </div>
+      <h2 class="login-title">Owner Administration</h2>
+      <p class="login-desc">
+        Access restricted strictly to <strong>Tanveer Ahmed</strong>. Please enter your email and password to manage your portfolio content.
+      </p>
+
+      <form id="wall-login-form">
+        <div class="admin-form-group" style="text-align: left;">
+          <label class="admin-label" for="wall-email">Owner Email</label>
+          <input type="email" id="wall-email" class="admin-input" value="mdtanveerahmed.@gmail.com" required>
+        </div>
+
+        <div class="admin-form-group" style="text-align: left; margin-bottom: 1.5rem;">
+          <label class="admin-label" for="wall-pass">Password</label>
+          <input type="password" id="wall-pass" class="admin-input" placeholder="Enter password" required>
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="width: 100%; padding: 0.8rem;">
+          <i class="fas fa-key"></i> Unlock Dashboard
+        </button>
+
+        <div style="margin-top: 1.25rem;">
+          <a href="index.html" style="font-size: 0.85rem; color: #64748b; text-decoration: none;">
+            <i class="fas fa-arrow-left"></i> Return to Public Website
+          </a>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Admin Top Navigation Bar -->
+  <header class="admin-navbar">
+    <div class="admin-nav-left">
+      <div class="admin-logo-badge">TA</div>
+      <div class="admin-title-wrap">
+        <h1>Tanveer Ahmed — Portfolio CMS</h1>
+        <p>Zero-Code Content Management for Tanveer</p>
+      </div>
+    </div>
+
+    <div class="admin-nav-right">
+      <a href="index.html" class="btn btn-secondary" target="_blank">
+        <i class="fas fa-external-link-alt"></i> View Live Site
+      </a>
+      <button class="btn btn-primary" id="btn-save-top" onclick="document.getElementById('btn-save-all').click()">
+        <i class="fas fa-save"></i> Save All
+      </button>
+      <button class="btn btn-secondary" id="cms-logout-btn" style="color: #dc2626;">
+        <i class="fas fa-sign-out-alt"></i> Logout
+      </button>
+    </div>
+  </header>
+
+  <!-- Admin Main Layout -->
+  <div class="admin-layout">
+    
+    <!-- Sidebar -->
+    <aside class="admin-sidebar">
+      <span class="sidebar-heading">Content Sections</span>
+      
+      <button class="admin-tab-btn active" data-tab="tab-profile">
+        <i class="fas fa-user-circle"></i> Profile & Contacts
+      </button>
+      <button class="admin-tab-btn" data-tab="tab-photo">
+        <i class="fas fa-image"></i> Photo Manager
+      </button>
+      <button class="admin-tab-btn" data-tab="tab-experience">
+        <i class="fas fa-briefcase"></i> Work Experience
+      </button>
+      <button class="admin-tab-btn" data-tab="tab-education">
+        <i class="fas fa-graduation-cap"></i> Education & CGPA
+      </button>
+      <button class="admin-tab-btn" data-tab="tab-training">
+        <i class="fas fa-certificate"></i> Specialized Training
+      </button>
+      <button class="admin-tab-btn" data-tab="tab-skills">
+        <i class="fas fa-tools"></i> Skills Matrix
+      </button>
+      <button class="admin-tab-btn" data-tab="tab-references">
+        <i class="fas fa-users"></i> References
+      </button>
+
+      <span class="sidebar-heading" style="margin-top: 1rem;">System & Security</span>
+      <button class="admin-tab-btn" data-tab="tab-settings">
+        <i class="fas fa-cog"></i> Backups & Security
+      </button>
+
+      <div class="sidebar-footer">
+        <div style="font-size: 0.78rem; color: #94a3b8; line-height: 1.4;">
+          <strong>সহজ বাংলা নির্দেশনা:</strong><br>
+          এখানে কোনো কোড পরিবর্তন করতে হবে না। শুধু বক্সে টেক্সট বা ছবি পরিবর্তন করে নিচে <strong>"Save All Changes"</strong> বাটনে ক্লিক করলেই মূল ওয়েবসাইটে সাথে সাথে আপডেট হয়ে যাবে।
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="admin-content-area">
+
+      <!-- ========================================================
+           TAB 1: Profile & Contact
+           ======================================================== -->
+      <section class="tab-pane active" id="tab-profile">
+        <div class="pane-header">
+          <h2 class="pane-title">Profile & Contact Information</h2>
+          <p class="pane-desc">Edit your official name, title, contact numbers, email, location, and bio narrative.</p>
+        </div>
+
+        <div class="help-box">
+          <i class="fas fa-lightbulb"></i> <strong>পরামর্শ:</strong> আপনার বায়ো ও ক্যারিয়ার অবজেক্টিভ সিভির সাথে মিল রেখে রাখা হয়েছে। ভবিষ্যতে জবে অভিজ্ঞতা বাড়লে আপনি সরাসরি এখান থেকে যেকোনো লাইন পরিবর্তন বা যোগ করতে পারবেন।
+        </div>
+
+        <div class="admin-card">
+          <div class="admin-card-header">
+            <h3 class="admin-card-title"><i class="fas fa-id-card"></i> Personal Identity</h3>
+          </div>
+
+          <div class="admin-form-row">
+            <div class="admin-form-group">
+              <label class="admin-label">Full Name</label>
+              <input type="text" id="input-name" class="admin-input" oninput="markUnsaved()">
+            </div>
+            <div class="admin-form-group">
+              <label class="admin-label">Professional Designation / Title</label>
+              <input type="text" id="input-title" class="admin-input" oninput="markUnsaved()">
+            </div>
+          </div>
+
+          <div class="admin-form-group">
+            <label class="admin-label">Subtitle / Key Highlight Line</label>
+            <input type="text" id="input-subtitle" class="admin-input" oninput="markUnsaved()">
+          </div>
+
+          <div class="admin-form-row">
+            <div class="admin-form-group">
+              <label class="admin-label">Official Email</label>
+              <input type="email" id="input-email" class="admin-input" oninput="markUnsaved()">
+            </div>
+            <div class="admin-form-group">
+              <label class="admin-label">Current Location / Address</label>
+              <input type="text" id="input-location" class="admin-input" oninput="markUnsaved()">
+            </div>
+          </div>
+
+          <div class="admin-form-row">
+            <div class="admin-form-group">
+              <label class="admin-label">Primary Mobile Phone</label>
+              <input type="text" id="input-phone-1" class="admin-input" oninput="markUnsaved()">
+            </div>
+            <div class="admin-form-group">
+              <label class="admin-label">Secondary Mobile Phone</label>
+              <input type="text" id="input-phone-2" class="admin-input" oninput="markUnsaved()">
+            </div>
+          </div>
+
+          <div class="admin-form-row">
+            <div class="admin-form-group">
+              <label class="admin-label">WhatsApp Number (e.g. 8801726105293)</label>
+              <input type="text" id="input-whatsapp" class="admin-input" oninput="markUnsaved()">
+            </div>
+            <div class="admin-form-group">
+              <label class="admin-label">LinkedIn Profile URL</label>
+              <input type="text" id="input-linkedin" class="admin-input" oninput="markUnsaved()">
+            </div>
+          </div>
+
+          <div class="admin-form-row">
+            <div class="admin-form-group">
+              <label class="admin-label">Facebook Profile URL</label>
+              <input type="text" id="input-facebook" class="admin-input" oninput="markUnsaved()">
+            </div>
+            <div class="admin-form-group">
+              <label class="admin-label">Instagram Profile URL</label>
+              <input type="text" id="input-instagram" class="admin-input" oninput="markUnsaved()">
+            </div>
+          </div>
+        </div>
+
+        <div class="admin-card">
+          <div class="admin-card-header">
+            <h3 class="admin-card-title"><i class="fas fa-align-left"></i> Summary & Career Objective</h3>
+          </div>
+
+          <div class="admin-form-group">
+            <label class="admin-label">Profile Narrative / About Me</label>
+            <textarea id="input-bio" class="admin-textarea" rows="4" oninput="markUnsaved()"></textarea>
+          </div>
+
+          <div class="admin-form-group">
+            <label class="admin-label">Career Objective (For Bosses & Hiring Managers)</label>
+            <textarea id="input-objective" class="admin-textarea" rows="3" oninput="markUnsaved()"></textarea>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================================================
+           TAB 2: Photo Manager
+           ======================================================== -->
+      <section class="tab-pane" id="tab-photo">
+        <div class="pane-header">
+          <h2 class="pane-title">Profile Photo Management</h2>
+          <p class="pane-desc">Upload a new photo from your device or revert to the original provided picture.</p>
+        </div>
+
+        <div class="admin-card">
+          <div class="admin-card-header">
+            <h3 class="admin-card-title"><i class="fas fa-camera"></i> Current Profile Picture</h3>
+          </div>
+
+          <div class="photo-uploader-box">
+            <div class="photo-preview-wrap">
+              <img src="assets/images/tanveer_avatar.jpg" alt="Preview" class="photo-preview-img" id="admin-photo-preview">
+            </div>
+
+            <div class="photo-upload-actions">
+              <p style="font-size: 0.92rem; color: #334155; margin: 0 0 0.5rem;">
+                <strong>নতুন ছবি আপলোড করতে চান?</strong><br>
+                নিচের বাটনে ক্লিক করে আপনার কম্পিউটার বা ফোন থেকে যেকোনো নতুন ছবি বেছে নিন। এটি সাথে সাথে ওয়েবসাইটে সেট হয়ে যাবে।
+              </p>
+              
+              <label class="btn btn-primary" style="width: fit-content; cursor: pointer;">
+                <i class="fas fa-upload"></i> Choose Photo from Device
+                <input type="file" id="photo-file-input" accept="image/*" style="display: none;">
+              </label>
+
+              <button type="button" class="btn btn-secondary" id="btn-reset-photo" style="width: fit-content;">
+                <i class="fas fa-undo"></i> Reset to Default Photo
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================================================
+           TAB 3: Work Experience
+           ======================================================== -->
+      <section class="tab-pane" id="tab-experience">
+        <div class="pane-header">
+          <h2 class="pane-title">Work Experience & Internship</h2>
+          <p class="pane-desc">Manage your job roles, internship duties at Pacific Jeans NHT Fashion, or add new future jobs.</p>
+        </div>
+
+        <div id="experience-editor-list">
+          <!-- Populated via admin.js -->
+        </div>
+
+        <button type="button" class="btn-add-item" id="btn-add-experience">
+          <i class="fas fa-plus-circle"></i> Add New Work Experience Entry
+        </button>
+      </section>
+
+      <!-- ========================================================
+           TAB 4: Education & CGPA
+           ======================================================== -->
+      <section class="tab-pane" id="tab-education">
+        <div class="pane-header">
+          <h2 class="pane-title">Educational Qualifications</h2>
+          <p class="pane-desc">Update degrees (Masters CBIFT, BBA IIUC, HSC, SSC), passing years, and results.</p>
+        </div>
+
+        <div id="education-editor-list">
+          <!-- Populated via admin.js -->
+        </div>
+
+        <button type="button" class="btn-add-item" id="btn-add-education">
+          <i class="fas fa-plus-circle"></i> Add New Degree / Academic Record
+        </button>
+      </section>
+
+      <!-- ========================================================
+           TAB 5: Specialized Training
+           ======================================================== -->
+      <section class="tab-pane" id="tab-training">
+        <div class="pane-header">
+          <h2 class="pane-title">Specialized Training Programs</h2>
+          <p class="pane-desc">Manage Merchandising & Procurement training and NYTA Microsoft Office certifications.</p>
+        </div>
+
+        <div id="training-editor-list">
+          <!-- Populated via admin.js -->
+        </div>
+
+        <button type="button" class="btn-add-item" id="btn-add-training">
+          <i class="fas fa-plus-circle"></i> Add New Training Program
+        </button>
+      </section>
+
+      <!-- ========================================================
+           TAB 6: Skills Matrix
+           ======================================================== -->
+      <section class="tab-pane" id="tab-skills">
+        <div class="pane-header">
+          <h2 class="pane-title">Core Competencies & Tools</h2>
+          <p class="pane-desc">Add, edit, or adjust percentage proficiency for Supply Chain, Merchandising, and IT skills.</p>
+        </div>
+
+        <div id="skills-editor-list">
+          <!-- Populated via admin.js -->
+        </div>
+
+        <button type="button" class="btn-add-item" id="btn-add-skill">
+          <i class="fas fa-plus-circle"></i> Add New Skill
+        </button>
+      </section>
+
+      <!-- ========================================================
+           TAB 7: References
+           ======================================================== -->
+      <section class="tab-pane" id="tab-references">
+        <div class="pane-header">
+          <h2 class="pane-title">Professional References</h2>
+          <p class="pane-desc">Manage contact details for Md. Fazlul Karim and Md. Sarwar Jahan Rifat.</p>
+        </div>
+
+        <div id="references-editor-list">
+          <!-- Populated via admin.js -->
+        </div>
+
+        <button type="button" class="btn-add-item" id="btn-add-reference">
+          <i class="fas fa-plus-circle"></i> Add New Reference
+        </button>
+      </section>
+
+      <!-- ========================================================
+           TAB 8: Backups & Security Settings
+           ======================================================== -->
+      <section class="tab-pane" id="tab-settings">
+        <div class="pane-header">
+          <h2 class="pane-title">Data Backup & Security Settings</h2>
+          <p class="pane-desc">Keep your data safe and manage the credentials configured for the secure CMS backend.</p>
+        </div>
+
+        <div class="admin-card">
+          <div class="admin-card-header">
+            <h3 class="admin-card-title"><i class="fas fa-shield-alt"></i> Secure CMS Configuration</h3>
+          </div>
+          <p style="font-size: 0.9rem; color: #475569; margin-bottom: 1.25rem;">
+            CMS credentials and GitHub access are stored as private environment variables in the Vercel project settings. They are never saved in this portfolio or browser storage. To change the admin password or token, update the corresponding production environment variable in Vercel and redeploy.
+          </p>
+        </div>
+
+        <!-- Backup & Restore Card -->
+        <div class="admin-card">
+          <div class="admin-card-header">
+            <h3 class="admin-card-title"><i class="fas fa-cloud-download-alt"></i> Backup & Restore Data</h3>
+          </div>
+
+          <p style="font-size: 0.9rem; color: #475569; margin-bottom: 1.25rem;">
+            আপনি চাইলে আপনার ওয়েবসাইটের সমস্ত তথ্য একটি ব্যাকআপ ফাইল (JSON) হিসেবে সেভ করে রাখতে পারেন অথবা আগের কোনো ব্যাকআপ রিস্টোর করতে পারেন:
+          </p>
+
+          <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+            <button type="button" class="btn btn-primary" id="btn-download-backup">
+              <i class="fas fa-download"></i> Download Full Backup (.json)
+            </button>
+
+            <label class="btn btn-secondary" style="cursor: pointer;">
+              <i class="fas fa-upload"></i> Restore from Backup (.json)
+              <input type="file" id="restore-file-input" accept=".json" style="display: none;">
+            </label>
+
+            <button type="button" class="btn btn-secondary" id="btn-reset-original" style="color: #dc2626;">
+              <i class="fas fa-history"></i> Reset to Original CV Data
+            </button>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- Sticky Bottom Save Action Bar -->
+  <div class="admin-sticky-bar">
+    <div class="save-status-info">
+      <span class="save-status-indicator" id="save-indicator"></span>
+      <span id="save-text">Ready to edit</span>
+    </div>
+
+    <div style="display: flex; gap: 1rem;">
+      <a href="index.html" class="btn btn-secondary" target="_blank">
+        <i class="fas fa-eye"></i> View Live Site
+      </a>
+      <button type="button" class="btn btn-primary" id="btn-save-all">
+        <i class="fas fa-check"></i> Save All Changes
+      </button>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/admin.js"></script>
+</body>
+</html>
