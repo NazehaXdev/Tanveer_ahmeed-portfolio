@@ -85,10 +85,32 @@ class CmsBackendTests(unittest.TestCase):
 
     def test_public_portfolio_does_not_expose_auth_data(self):
         response = FakeHandler()
-        cms_backend.handle_portfolio_get(response)
+        remote_data = {
+            "personal": {"name": "Latest from GitHub"},
+            "auth": {"passwordHash": "must not be public"},
+        }
+        encoded_content = base64.b64encode(
+            json.dumps(remote_data).encode("utf-8")
+        ).decode("ascii")
+        with patch.object(
+            cms_backend,
+            "_github_request",
+            return_value={"content": encoded_content},
+        ) as request:
+            cms_backend.handle_portfolio_get(response)
 
         self.assertEqual(response.status, 200)
         self.assertNotIn("auth", response.payload())
+        self.assertEqual(response.payload()["personal"]["name"], "Latest from GitHub")
+        request.assert_called_once_with("GET", "test-token")
+
+    def test_public_portfolio_uses_deployed_file_without_github_token(self):
+        response = FakeHandler()
+        with patch.dict(os.environ, {"GITHUB_TOKEN": ""}):
+            cms_backend.handle_portfolio_get(response)
+
+        self.assertEqual(response.status, 200)
+        self.assertIn("personal", response.payload())
 
     def test_portfolio_update_requires_signed_session(self):
         body = json.dumps({"personal": {"name": "Owner"}}).encode("utf-8")

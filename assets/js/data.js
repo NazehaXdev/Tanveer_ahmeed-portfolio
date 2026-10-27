@@ -227,18 +227,18 @@ class PortfolioStore {
   }
 
   static async syncFromSource() {
-    try {
+    if (window.location.protocol !== "file:") {
       const res = await fetch("/api/portfolio", { cache: "no-store" });
-      if (res.ok) {
-        const cloudData = await res.json();
-        if (cloudData && cloudData.personal) {
-          PortfolioStore.saveData(cloudData);
-          window.dispatchEvent(new CustomEvent("portfolioDataUpdated", { detail: cloudData }));
-          return cloudData;
-        }
+      const cloudData = await res.json().catch(() => ({}));
+      if (!res.ok) {
+        throw new Error(cloudData.error || "Latest portfolio data could not be loaded.");
       }
-    } catch (e) {
-      // Static-only previews can still load the checked-in portfolio data.
+      if (!cloudData.personal) {
+        throw new Error("The portfolio data response is invalid.");
+      }
+      PortfolioStore.saveData(cloudData);
+      window.dispatchEvent(new CustomEvent("portfolioDataUpdated", { detail: cloudData }));
+      return cloudData;
     }
 
     try {
@@ -250,7 +250,7 @@ class PortfolioStore {
           return staticData;
         }
       }
-    } catch (e) {
+    } catch (error) {
       // Offline previews use the bundled defaults.
     }
     return PortfolioStore.getData();

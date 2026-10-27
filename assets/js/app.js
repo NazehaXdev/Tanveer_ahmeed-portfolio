@@ -16,10 +16,13 @@ document.addEventListener("DOMContentLoaded", () => {
   // Initialize portfolio immediately from cached or default data
   renderPortfolio();
 
-  // Then asynchronously sync from global source (assets/data/portfolio_data.json)
+  // Then asynchronously sync from the latest public portfolio data.
   if (PortfolioStore.syncFromSource) {
     PortfolioStore.syncFromSource().then(() => {
       renderPortfolio();
+    }).catch(error => {
+      console.error("Could not load the latest portfolio data.", error);
+      showToast("The latest portfolio update could not be loaded. Please try again later.");
     });
   }
 

@@ -176,9 +176,17 @@ def _public_data(data):
 
 def handle_portfolio_get(handler):
     try:
-        with DATA_FILE.open("r", encoding="utf-8") as data_file:
-            data = _public_data(json.load(data_file))
-        _send_json(handler, 200, data)
+        token = os.environ.get("GITHUB_TOKEN", "")
+        if token:
+            file_info = _github_request("GET", token)
+            encoded_content = file_info.get("content", "")
+            if not encoded_content:
+                raise RequestError(502, "GitHub returned an empty portfolio file.")
+            data = json.loads(base64.b64decode(encoded_content).decode("utf-8"))
+        else:
+            with DATA_FILE.open("r", encoding="utf-8") as data_file:
+                data = json.load(data_file)
+        _send_json(handler, 200, _public_data(data))
     except FileNotFoundError:
         _send_json(handler, 404, {"error": "Portfolio data was not found."})
     except (OSError, json.JSONDecodeError) as exc:
@@ -186,6 +194,12 @@ def handle_portfolio_get(handler):
         _send_json(handler, 500, {"error": "Portfolio data could not be loaded."})
     except RequestError as exc:
         _send_json(handler, exc.status, {"error": str(exc)})
+    except urllib.error.HTTPError as exc:
+        print(f"GitHub portfolio read failed with status {exc.code}.")
+        _send_json(handler, 502, {"error": "GitHub could not load the latest portfolio data."})
+    except (urllib.error.URLError, UnicodeDecodeError, ValueError, KeyError) as exc:
+        print(f"GitHub portfolio read failed: {exc}")
+        _send_json(handler, 502, {"error": "GitHub could not load the latest portfolio data."})
 
 
 def _github_request(method, token, body=None):

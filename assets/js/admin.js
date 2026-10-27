@@ -6,13 +6,17 @@
 
 let currentData = null;
 
-document.addEventListener("DOMContentLoaded", () => {
-  initAuthGuard();
+document.addEventListener("DOMContentLoaded", async () => {
   initTabs();
-  loadDataIntoForms();
   initPhotoUploader();
   initItemGenerators();
   initBackupRestore();
+  try {
+    await PortfolioStore.syncFromSource();
+  } catch (error) {
+    showAdminToast(`Could not load the latest portfolio: ${error.message}`);
+  }
+  await initAuthGuard();
 });
 
 /**
@@ -28,6 +32,7 @@ async function initAuthGuard() {
     if (!response.ok) throw new Error("Please sign in to manage your portfolio.");
     sessionStorage.setItem("tanveer_admin_logged_in", "true");
     if (overlay) overlay.classList.add("hidden");
+    loadDataIntoForms();
   } catch (error) {
     sessionStorage.removeItem("tanveer_admin_logged_in");
     if (overlay) overlay.classList.remove("hidden");
@@ -43,6 +48,11 @@ async function initAuthGuard() {
         if (await PortfolioStore.verifyAuth(email, pass)) {
           sessionStorage.setItem("tanveer_admin_logged_in", "true");
           if (overlay) overlay.classList.add("hidden");
+          try {
+            await PortfolioStore.syncFromSource();
+          } catch (error) {
+            showAdminToast(`Could not load the latest portfolio: ${error.message}`);
+          }
           loadDataIntoForms();
           showAdminToast("Login successful! Welcome Tanveer.");
         } else {

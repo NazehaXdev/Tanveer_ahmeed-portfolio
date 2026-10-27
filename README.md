@@ -48,7 +48,9 @@ Use the Vercel project’s **Settings → Environment Variables** page. Do not p
 
 ## 🌐 Vercel deployment
 
-The portfolio is served as static files while the authenticated CMS API runs as Python serverless functions under `api/`. Connect this GitHub repository to Vercel, add all four private environment variables above, and deploy the `main` branch. CMS updates commit the public portfolio JSON to this repository; Vercel then rebuilds the site.
+The portfolio is served as static files while the authenticated CMS API runs as Python serverless functions under `api/`. Add all four private environment variables above to the Vercel production project. Create a GitHub fine-grained personal access token limited to this repository with **Contents: Read and write** permission, then save it as `GITHUB_TOKEN` in Vercel. Do not paste the token into chat or source files.
+
+The public portfolio API reads the latest JSON directly from GitHub after each successful CMS update, so content changes appear on the website without waiting for a Vercel rebuild. Saving from the CMS commits the edited public portfolio data to the repository's `main` branch. Connect the repository to Vercel separately if you also want code changes to auto-deploy.
 
 For local development, set the same environment variables in the shell before running `python server.py`.
 
